@@ -4,46 +4,99 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy – Epitech Dashboard</title>
-<style>
-  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 720px; margin: 0 auto; padding: 32px 16px; line-height: 1.6; color: #1f2328; background: #ffffff; }
-  h1 { margin-top: 0; }
-  a { color: #0969da; word-break: break-word; }
-  nav { margin-top: 32px; padding-top: 16px; border-top: 1px solid #d0d7de; }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<main>
 <h1>Privacy Policy</h1>
-<p>This policy describes how Epitech Dashboard, a student project, handles your data.</p>
+<p class="updated">Last updated: 7 October 2026</p>
+<p>This policy describes how Epitech Dashboard, a free, non-commercial student project, handles your data. The person responsible for it is Ethan Saintot (<a href="mailto:ethansaintot582@gmail.com">ethansaintot582@gmail.com</a>).</p>
 
 <h2>Data we store</h2>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th scope="col">What</th><th scope="col">Details</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Your account</td><td>First name, last name, email address, password (stored hashed with bcrypt, never in clear), account creation date, whether your email is confirmed, and the date you accepted the Terms of Service.</td></tr>
+    <tr><td>Email confirmation</td><td>A one-time confirmation code, valid 24 hours, removed once your email is confirmed.</td></tr>
+    <tr><td>Your dashboard</td><td>The widgets you add and their settings: cities, news feed links, languages, number of emails shown, refresh intervals, position and size on the screen.</td></tr>
+    <tr><td>Google connections (Gmail widget only)</td><td>The Google address you connect, and the access token and refresh token given by Google. These tokens are currently stored without encryption.</td></tr>
+    <tr><td>In your browser</td><td>A session token in the browser's local storage, valid 60 minutes. No cookies, no analytics, no advertising, no trackers.</td></tr>
+    <tr><td>Technical logs</td><td>The server prints the requests it receives (IP address, date, address requested) in its console log. This log is not stored in the database and disappears with the server's container.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Data we do not store</h2>
 <ul>
-  <li><strong>Account data:</strong> first name, last name, email address, and password (stored hashed with bcrypt).</li>
-  <li><strong>Widget configuration:</strong> the widgets you add to your dashboard and their settings.</li>
-  <li><strong>Google OAuth tokens:</strong> the access token and refresh token are stored in the application's PostgreSQL database. These tokens are currently not encrypted.</li>
+  <li>The content of your emails: they are read through the Gmail API at the moment they are displayed, and never saved.</li>
+  <li>The texts you translate, and their translations.</li>
+  <li>The weather, forecasts and news articles: they are read again at each refresh.</li>
 </ul>
 
-<h2>Gmail data</h2>
+<h2>Who receives data</h2>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th scope="col">Recipient</th><th scope="col">What, and when</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Google (Gmail API)</td><td>Only if you connect a Gmail widget: the application reads your latest emails with the read-only scope <code>gmail.readonly</code>.</td></tr>
+    <tr><td>Google (email delivery)</td><td>Your email address and first name, to send you the account confirmation email through Gmail's mail server.</td></tr>
+    <tr><td>Open-Meteo</td><td>The city names you type in the Weather, Forecast and Clock widgets, to find the place, its weather and its time zone. Nothing about you is sent with them, and the request comes from the server, not from your browser.</td></tr>
+    <tr><td>News sites</td><td>The server downloads the feed link you type in a News widget. That site sees the server's address, never yours.</td></tr>
+    <tr><td>Nobody (translation)</td><td>Translations run on LibreTranslate, inside the project's own server: your texts never leave it.</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Links you click (an article, an email in Gmail, Open-Meteo) open the destination site directly in your browser: that site's own privacy policy then applies. Your data is never sold, never used for advertising and never used to train AI models.</p>
+
+<h2>Why we use your data</h2>
 <ul>
-  <li>Emails are read through the Gmail API at the moment they are displayed.</li>
-  <li>Emails are not stored, not shared with third parties, not used for advertising, and not used to train AI models.</li>
-  <li>The application never modifies or deletes your emails: it only uses the read-only scope (gmail.readonly).</li>
+  <li><strong>To provide the service you asked for</strong> (GDPR art. 6.1.b): your account and your dashboard, under the <a href="terms.html">Terms of Service</a> you accept when you sign up.</li>
+  <li><strong>With your consent</strong> (GDPR art. 6.1.a): connecting a Google account to a Gmail widget. You can withdraw it at any time with "Disconnect".</li>
 </ul>
 
-<h2>Your controls</h2>
+<h2>How long we keep it</h2>
 <ul>
-  <li><strong>Disconnect:</strong> detaches the Gmail widget. Access is revoked with Google when no widget uses it anymore.</li>
-  <li><strong>Delete my account:</strong> deletes all of your data.</li>
+  <li>Your account and your dashboard: until you delete your account.</li>
+  <li>Google tokens: until you disconnect (access is revoked with Google once no widget uses that address anymore), or until you delete your account.</li>
+  <li>An account whose email was never confirmed stays stored until it is deleted: write to us and we will delete it.</li>
+</ul>
+
+<h2>Your rights</h2>
+<p>Under the GDPR, you can access your data, have it corrected or deleted, receive a copy of it, restrict or object to its use, and withdraw your consent.</p>
+<ul>
+  <li><strong>Delete my account</strong>, on your dashboard, deletes all of your data at once and revokes the application's Google access.</li>
+  <li><strong>Disconnect</strong>, on a Gmail widget, detaches its Google account.</li>
   <li>You can also remove the application's access at any time at <a href="https://myaccount.google.com/permissions">https://myaccount.google.com/permissions</a>.</li>
+  <li>For any other request, write to <a href="mailto:ethansaintot582@gmail.com">ethansaintot582@gmail.com</a>.</li>
+  <li>You can also file a complaint with the French data protection authority, the CNIL: <a href="https://www.cnil.fr">https://www.cnil.fr</a>.</li>
+</ul>
+
+<h2>Security</h2>
+<ul>
+  <li>Passwords are hashed with bcrypt, and sessions use signed tokens that expire after 60 minutes.</li>
+  <li>Gmail access is read-only: the application can never send, modify or delete an email.</li>
+  <li>Each widget only answers its owner, and a feed link can never make the server reach its own internal services.</li>
+  <li>Google tokens are not encrypted yet in the database: this is a known limit of the project.</li>
 </ul>
 
 <h2>Google API Services User Data Policy</h2>
 <p>Epitech Dashboard's use and transfer of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
 
+<h2>Changes</h2>
+<p>If this policy changes, the date at the top of this page is updated.</p>
+
 <h2>Contact</h2>
 <p><a href="mailto:ethansaintot582@gmail.com">ethansaintot582@gmail.com</a></p>
+</main>
 
-<nav>
+<nav aria-label="Legal pages">
   <a href="index.html">Home</a> &middot;
+  <a href="legal-notice.html">Legal notice</a> &middot;
   <a href="terms.html">Terms of Service</a>
 </nav>
 </body>

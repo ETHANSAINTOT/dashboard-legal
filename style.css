@@ -1,0 +1,82 @@
+/* shared by every page of the legal site */
+:root {
+  --text: #1f2328;
+  --muted: #59636e;
+  --link: #0969da;
+  --line: #d0d7de;
+  --bg: #ffffff;
+  --box: #f6f8fa;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e6edf3;
+    --muted: #9198a1;
+    --link: #4493f8;
+    --line: #3d444d;
+    --bg: #0d1117;
+    --box: #151b23;
+  }
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+h1 {
+  margin-top: 0;
+}
+
+h2 {
+  margin-top: 32px;
+}
+
+a {
+  color: var(--link);
+  overflow-wrap: anywhere;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+.updated {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* the 2-column tables (data, third parties) scroll on their own on a phone instead of widening the page */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+th,
+td {
+  padding: 8px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--box);
+}
+
+nav {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
